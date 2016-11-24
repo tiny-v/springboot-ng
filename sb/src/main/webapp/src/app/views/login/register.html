@@ -1,0 +1,36 @@
+<div  ng-controller="registerCtrl">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Register</h4>
+            </div>
+            <div class="modal-body">
+               
+               <form name="form" class="form-validation">
+				<div class="list-group list-group-sm">
+					<div class="list-group-item">
+						<input type="text" placeholder="手机号"
+							class="form-control no-border" ng-model="user.account" required>
+					</div>
+					<div class="list-group-item">
+						<input type="password" placeholder="密码"
+							class="form-control no-border" ng-model="user.password" required>
+					</div>
+					<div class="list-group-item">
+						<input type="password" placeholder="重复密码"
+							class="form-control no-border" ng-model="user.password2" required>
+					</div>
+					<div class="text-danger wrapper text-center" ng-show="authError">
+					{{authError}}</div>
+				</div>
+			</form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-lg btn-primary btn-block"
+					ng-click="register()" ng-disabled='form.$invalid'>注册</button>
+            </div>
+        </div>
+   
+
+</div>

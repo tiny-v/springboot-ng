@@ -1,0 +1,98 @@
+<!-- navbar header -->
+<div class="navbar-header {{app.settings.navbarHeaderColor}}">
+    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+        <i class="glyphicon glyphicon-cog"></i>
+    </button>
+    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+        <i class="glyphicon glyphicon-align-justify"></i>
+    </button>
+    <!-- brand -->
+    <a href="#/" class="navbar-brand text-lt">
+        <i class="fa fa-btc"></i>
+        <img src="img/logo.png" alt="." class="hide">
+        <span class="hidden-folded m-l-xs">{{app.name}}</span>
+    </a>
+    <!-- / brand -->
+</div>
+<!-- / navbar header -->
+
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+    <!-- buttons -->
+    <div class="nav navbar-nav hidden-xs">
+        <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+        </a>
+    </div>
+    <!-- / buttons -->
+
+    <!-- nabar right -->
+    <ul class="nav navbar-nav navbar-right">
+        <li class="hidden-xs">
+            <a ui-fullscreen></a>
+        </li>
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="icon-bell fa-fw"></i>
+                <span class="visible-xs-inline">Notifications</span>
+                <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
+            </a>
+            <!-- dropdown -->
+            <div class="dropdown-menu w-xl animated fadeInUp">
+                <div class="panel bg-white">
+                    <div class="panel-heading b-light bg-light">
+                        <strong>你有<span>2</span>条未读消息</strong>
+                    </div>
+                    <div class="list-group">
+                        <a href class="media list-group-item">
+                            <span class="media-body block m-b-none">
+                              1.0 initial released<br>
+                              <small class="text-muted">1 hour ago</small>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="panel-footer text-sm">
+                        <a href class="pull-right"><i class="fa fa-cog"></i></a>
+                        <a href="#notes" data-toggle="class:show animated fadeInRight">查看全部</a>
+                    </div>
+                </div>
+            </div>
+            <!-- / dropdown -->
+        </li>
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle clear" dropdown-toggle>
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="img/a0.jpg" alt="...">
+                <i class="on md b-white bottom"></i>
+              </span>
+                <span class="hidden-sm hidden-md">管理员</span> <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+            <ul class="dropdown-menu animated fadeInRight">
+                <li>
+                    <a href>
+                        <i class="fa fa fa-cog"></i>&nbsp;&nbsp;
+                        <span>设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a ui-sref="app.page.profile">
+                        <i class="fa fa fa-user"></i>&nbsp;&nbsp;
+                        <span>个人信息</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ui-sref="access.signin">
+                        <i class="fa fa fa-sign-out"></i>&nbsp;&nbsp;
+                        <span>注销</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- / dropdown -->
+        </li>
+    </ul>
+    <!-- / navbar right -->
+
+</div>
+<!-- / navbar collapse -->

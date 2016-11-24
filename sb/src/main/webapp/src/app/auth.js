@@ -1,0 +1,3 @@
+app.factory('Auth',[function(){
+	
+}]);

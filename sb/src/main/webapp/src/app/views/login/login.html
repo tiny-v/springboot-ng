@@ -1,0 +1,26 @@
+<div class="modal-over bg-black ng-scope" ng-controller="loginCtrl">
+	<div style="width:30%;padding-top:10%;margin-left:35%;">
+		<p class="text-center"><image src="app/images/logo.png"></image></p>
+		<div class="m-b-lg">
+			<form name="form" class="form-validation">
+				<div class="list-group list-group-sm">
+					<div class="list-group-item">
+						<input type="text" placeholder="Account"
+							class="form-control no-border" ng-model="user.account" required>
+					</div>
+					<div class="list-group-item">
+						<input type="password" placeholder="Password"
+							class="form-control no-border" ng-model="user.password" required>
+					</div>
+					<div class="text-danger wrapper text-center" ng-show="authError">
+					{{authError}}</div>
+				</div>
+				<button type="submit" class="btn btn-lg btn-primary btn-block"
+					ng-click="login()" ng-disabled='form.$invalid'>登录</button>
+			</form>
+		</div>
+		<div class="pull-right"><a href ng-click="register()">注册</a></div>
+		<div style="text-align:bottom;" class="text-center"
+			ng-include="'app/views/blocks/page_footer.html'"></div>
+	</div>
+</div>
