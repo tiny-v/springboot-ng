@@ -1,36 +1,34 @@
-package com.my.sb;
+package com.my.sa.controller;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
-import com.my.sa.App;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.my.sa.domain.Message;
 import com.my.sa.service.MessageService;
 
-@RunWith(SpringJUnit4ClassRunner.class) // SpringJUnit支持，由此引入Spring-Test框架支持！ 
-@SpringApplicationConfiguration(classes = App.class) // 指定我们SpringBoot工程的Application启动类
-@WebAppConfiguration // 由于是Web项目，Junit需要模拟ServletContext，因此我们需要给我们的测试类加上@WebAppConfiguration。
-@Transactional
-@Rollback(false)
-public class junitTest {
+@Controller
+@RequestMapping(value="/message")
+public class MessageCtrl {
 	
 	@Autowired
 	private MessageService messageService;
 	
-	@Test
-	public void test(){
-		
+	@ResponseBody
+	@RequestMapping(value="/getMessageList",method=RequestMethod.GET)
+	public List<Message> getMessageList(){
+        return messageService.getMessageList();
 	}
 	
-	@Test
+	@ResponseBody
+	@RequestMapping(value="/insertMessage",method=RequestMethod.GET)
 	public void insertMessage(){
 		Message message = new Message();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
