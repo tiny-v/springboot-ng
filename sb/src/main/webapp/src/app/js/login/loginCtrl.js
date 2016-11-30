@@ -10,8 +10,6 @@ app.controller('loginCtrl',['$scope','$state','loginService','$modal',function($
 				if(resp.data){
 					$scope.authError=null;
 					loginService.setLoginUser($scope.user);
-					//$state.go('app');
-					console.log();
 				}else{
 					$scope.authError="用户名或密码错误";
 				}

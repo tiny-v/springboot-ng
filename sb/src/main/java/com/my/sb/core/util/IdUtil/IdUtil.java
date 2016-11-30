@@ -1,4 +1,4 @@
-package com.my.sb.core.data.id;
+package com.my.sb.core.util.IdUtil;
 
 /**
  * ID生成器工具类

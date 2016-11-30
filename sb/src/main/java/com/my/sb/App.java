@@ -5,16 +5,12 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.my.sb.filter.MyServlet1;
-import com.my.sb.filter.ServletFilter;
+import com.my.sb.core.filter.ServletFilter;
 
 //@ServletComponentScan(value = {"com.my.sb.filter.ServletFilter"})//1.3以后才有
 @SpringBootApplication
@@ -37,8 +33,6 @@ public class App{
 	@Bean
 	public FilterRegistrationBean securityFilter() {
 		ServletFilter filter = new ServletFilter();
-		//String unfilteredURIs = "(/.*/login$)|(/global/.*)|(/auth/.*)|(/access/.*)|(/sale/.*)|(/.*\\.jar$)|(/.*\\.ttf$)|(/.*\\.html$)|(/.*\\.jnlp$)|(/.*\\.png$)|(/.*\\.jpg$)|(/.*\\.gif$)|(/.*\\.ico$)|(/.*\\.css$)|(/.*\\.swf$)|(/.*\\.js$)|(/tools/.*)|(/.*\\.woff$)|(/.*\\.eot$)|(/.*\\.map$)|(/.*\\.ck$)";
-		//filter.setUnfilteredURIs(unfilteredURIs);
 		filter.setLoginUrl("/app/index.html#/login");
 
 		FilterRegistrationBean registration = new FilterRegistrationBean();
@@ -55,28 +49,8 @@ public class App{
 		return new DataSourceTransactionManager(dataSource);
 	}
 
-	@Bean
-	public Object testBean(PlatformTransactionManager platformTransactionManager){
-		log.info(">>>>>>>>>>" + platformTransactionManager.getClass().getName());
-		return new Object();
-	}
-
 	public static void main( String[] args )
 	{
 		ApplicationContext ac= SpringApplication.run(App.class, args);
-		String applicationName = ac.getApplicationName();
-		String displayName = ac.getDisplayName();
-		log.info("-------------applicationName-------------");
-		log.info(applicationName);
-		log.info("-------------displayName-------------");
-		log.info(displayName);
-		Environment env = ac.getEnvironment();
-		String serverPort = env.getProperty("server.port");
-		log.info("--------------server port---------------------");
-		log.info(serverPort);
-		String[] s = env.getDefaultProfiles();
-		for(String str:s){
-			log.info(str);
-		}
 	}
 }

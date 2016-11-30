@@ -1,4 +1,4 @@
-package com.my.sb.filter;
+package com.my.sb.core.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;

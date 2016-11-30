@@ -1,4 +1,4 @@
-package com.my.sb.core.data.id;
+package com.my.sb.core.util.IdUtil;
 
 /**
  * id生成器接口

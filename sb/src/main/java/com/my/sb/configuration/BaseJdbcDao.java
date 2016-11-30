@@ -1,4 +1,4 @@
-package com.my.sb.util.db;
+package com.my.sb.configuration;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;

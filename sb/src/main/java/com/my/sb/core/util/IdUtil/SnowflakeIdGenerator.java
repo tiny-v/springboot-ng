@@ -1,4 +1,4 @@
-package com.my.sb.core.data.id;
+package com.my.sb.core.util.IdUtil;
 
 /**
  * 参照twitter的snowflake改写的ID生成器实现

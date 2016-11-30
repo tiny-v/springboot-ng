@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.my.sb.configuration.BaseJdbcDao;
 import com.my.sb.dao.MessageDao;
 import com.my.sb.domain.Message;
-import com.my.sb.util.db.BaseJdbcDao;
 
 @Repository
 public class MessageDaoImpl extends BaseJdbcDao implements MessageDao{

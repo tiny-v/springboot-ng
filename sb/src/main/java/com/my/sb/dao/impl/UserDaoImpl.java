@@ -4,9 +4,9 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import com.my.sb.configuration.BaseJdbcDao;
 import com.my.sb.dao.UserDao;
 import com.my.sb.domain.User;
-import com.my.sb.util.db.BaseJdbcDao;
 @Repository
 public class UserDaoImpl extends BaseJdbcDao implements UserDao{
 

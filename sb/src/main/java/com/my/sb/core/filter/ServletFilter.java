@@ -1,4 +1,4 @@
-package com.my.sb.filter;
+package com.my.sb.core.filter;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
+import com.my.sb.core.global.Constants;
 import com.my.sb.domain.User;
-import com.my.sb.golbal.Constants;
 
 @WebFilter(filterName="webFilter",urlPatterns="/*")
 public class ServletFilter implements Filter{
@@ -49,25 +49,7 @@ public class ServletFilter implements Filter{
         String requestUri = hrequest.getRequestURI();
         String requestUrl = hrequest.getRequestURL().toString();
         String contextPath = hrequest.getContextPath();
-        //logger.info("uri:"+requestUri);
-       // logger.info("url:"+requestUrl);
-       // logger.info("contextPath:"+contextPath);
-        /*HttpSession session = hrequest.getSession();
-        User user = (User) session.getAttribute("user");
-        if(null!=user){
-        	System.out.println(user.getAccount());
-        }
-        if(requestUri.matches(Constants.unfilterUrl)){
-        	chain.doFilter(hrequest, hresponse);
-        	return ;
-        }*/
         chain.doFilter(hrequest, hresponse);
-        /*if(user != null){
-        	chain.doFilter(hrequest, hresponse);
-        }else{
-        	//hresponse.setStatus(403);
-        	showLoginPage(hrequest,hresponse);
-        }*/
 	}
 
 	@Override
