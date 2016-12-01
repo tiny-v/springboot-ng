@@ -3,16 +3,18 @@ app.controller('loginCtrl',['$scope','$state','loginService','$modal',function($
 	$scope.app = {};
 	$scope.app.name = "angular";
 
-	$scope.user = {};
+	$scope.user = {"account":"15195899120","password":"123456"};
 	$scope.login = function(){
+		$scope.user.password = hex_md5($scope.user.password);
 		loginService.login($scope.user).then(function(resp){
 			if(resp.status==200){
 				if(resp.data){
-					$scope.authError=null;
-					loginService.setLoginUser($scope.user);
-				}else{
-					$scope.authError="用户名或密码错误";
+					$scope.authError = null;
+					loginService.setLoginUser(resp.data);
+					$state.go('app.message');
 				}
+			}else if(resp.status==400){
+				$scope.authError = resp.data.message;
 			}
 		});
 	}

@@ -10,8 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 import com.my.sa.core.filter.ServletFilter;
+import com.my.sa.core.security.interceptor.SecurityInterceptor;
 
 //@ServletComponentScan(value = {"com.my.sb.filter.ServletFilter"})//1.3以后才有
 @SpringBootApplication
@@ -21,33 +23,16 @@ public class App{
 
 	static Logger log = Logger.getLogger(App.class);
 
-	/*@Bean
-	public ServletRegistrationBean  serv(){
-		return new ServletRegistrationBean(new MyServlet1(),"/servlet/*");
-	}*/
-	
-	/**
-	 * Security filter.
-	 *
-	 * @return the filter registration bean
-	 */
-	@Bean
-	public FilterRegistrationBean securityFilter() {
-		ServletFilter filter = new ServletFilter();
-		filter.setLoginUrl("/app/index.html#/login");
-
-		FilterRegistrationBean registration = new FilterRegistrationBean();
-		registration.setFilter(filter);
-		registration.addUrlPatterns("/*");
-		registration.setName("securityFilter");
-		return registration;
-	}
-
 	// 其中 dataSource 框架会自动为我们注入
 	//手动注入我们需要的事务管理器
 	@Bean(name="txManager1")
 	public PlatformTransactionManager txManager(DataSource dataSource) {
 		return new DataSourceTransactionManager(dataSource);
+	}
+	
+	//添加拦截器
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new SecurityInterceptor());
 	}
 
 	public static void main( String[] args )

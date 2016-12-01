@@ -35,7 +35,6 @@ public class junitTest {
 		Message message = new Message();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		message.setMsgId(String.valueOf((int)(Math.random()*1000)));
-        message.setMsgCat("testCat");
         message.setMsgContent("hello transaction");
         message.setMsgTitle("go go go,basketball");
         message.setMsgType("test");

@@ -1,16 +1,16 @@
-app.run(['$rootScope','$sessionStorage','$state',function($rootScope,$sessionStorage,$state) {
-    $rootScope.$on('$stateChangeStart', function(event, next) {
-    	if($sessionStorage.user==undefined || $sessionStorage.user==null){
-        	if(next.url!='/login'){
-        		event.preventDefault();
-        		$state.go('login');
-        	}
-        }
-    })
+app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',function($rootScope,$sessionStorage,$cookieStore,$state,authServ) {
+	$rootScope.$on('$stateChangeStart', function(event, next) {
+		console.log(next);
+		console.log(authServ.isLoggedIn());
+		if(!authServ.isLoggedIn() && next.name!='login'){
+			event.preventDefault();
+			$state.go('login');
+		}
+	})
 }])
 .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise("/login");
+	$urlRouterProvider.otherwise("/app/message");
 
 	$stateProvider
 	.state('login', {
@@ -33,6 +33,11 @@ app.run(['$rootScope','$sessionStorage','$state',function($rootScope,$sessionSto
 	})
 	.state('app.message',{
 		url:'/message',
-		templateUrl:"app/views/message/message.html"
+		templateUrl:"app/views/message/message.html",
+		resolve: {
+			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
+				return $ocLazyLoad.load(['app/js/message/messageCtrl.js','app/js/message/service/messageService.js']);
+			}]
+		}
 	})
 }]);

@@ -1,4 +1,4 @@
-app.factory('loginService',['$http','$sessionStorage',function($http,$sessionStorage){
+app.factory('loginService',['$http','$sessionStorage','$cookieStore',function($http,$sessionStorage,$cookieStore){
 	
 	var baseUrl = '/login';
 	
@@ -12,6 +12,7 @@ app.factory('loginService',['$http','$sessionStorage',function($http,$sessionSto
 			});
 		},
 		setLoginUser:function(user){
+			$cookieStore.put('token',user.token);
 		    $sessionStorage.user=user;
 		},
 		getLoginUser:function(){

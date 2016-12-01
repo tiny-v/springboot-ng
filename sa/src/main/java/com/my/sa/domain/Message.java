@@ -3,7 +3,6 @@ package com.my.sa.domain;
 public class Message {
 	
 	private String msgId;
-	private String msgCat;
 	private String msgTitle;
 	private String msgContent;
 	private String msgType;
@@ -14,9 +13,6 @@ public class Message {
 	
 	public String getMsgId() {
 		return msgId;
-	}
-	public String getMsgCat() {
-		return msgCat;
 	}
 	public String getMsgTitle() {
 		return msgTitle;
@@ -41,9 +37,6 @@ public class Message {
 	}
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
-	}
-	public void setMsgCat(String msgCat) {
-		this.msgCat = msgCat;
 	}
 	public void setMsgTitle(String msgTitle) {
 		this.msgTitle = msgTitle;
