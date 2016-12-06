@@ -14,12 +14,12 @@ public class MySessionListener implements HttpSessionListener{
 		//HttpSession session=se.getSession();
 		//String id=session.getId()+session.getCreationTime();
 		//SummerConstant.UserMap.put(id,Boolean.TRUE);//添加用户
-        Constants.online_Num++;
+        Constants.onlineNum++;
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
-		Constants.online_Num--;
+		Constants.onlineNum--;
 	}
 
 }

@@ -14,7 +14,7 @@ public class GlobalController {
 	@RequestMapping(value="/getOnlineNum",method=RequestMethod.GET)
 	@ResponseBody
 	public long getOnlineNum(){
-		return Constants.online_Num;
+		return Constants.onlineNum;
 	}
 
 }
