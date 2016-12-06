@@ -42,6 +42,7 @@ public class loginController {
 				String token = SessionUtils.getToken(request);
 				loginUser.setToken(token);
 				session.setAttribute(SessionUtils.SIGN_IN_USER, user2);
+				session.setMaxInactiveInterval(10*60);
 				return loginUser;
 			}else{
 				//账号密码不匹配
@@ -65,5 +66,17 @@ public class loginController {
 		map.put("message", "success");
 		return map;
 	}
+	
+	/**
+	 * Log out.注销
+	 *
+	 * @param request the request
+	 */
+	@RequestMapping(value="/logOut",method=RequestMethod.GET)
+	public void logOut(HttpServletRequest request){
+		HttpSession session = request.getSession();
+	    session.invalidate();
+	}
+	
 	
 }

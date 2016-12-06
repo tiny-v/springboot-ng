@@ -5,6 +5,7 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -19,6 +20,7 @@ import com.my.sa.core.security.interceptor.SecurityInterceptor;
 @SpringBootApplication
 //@EnableAutoConfiguration
 @EnableTransactionManagement
+@ServletComponentScan 
 public class App{
 
 	static Logger log = Logger.getLogger(App.class);

@@ -10,7 +10,7 @@ app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',funct
 }])
 .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise("/app/message");
+	$urlRouterProvider.otherwise("/login");
 
 	$stateProvider
 	.state('login', {
@@ -27,7 +27,7 @@ app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',funct
 		templateUrl: "app/views/home/home.html",
 		resolve: {
 			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
-				return $ocLazyLoad.load(['app/js/home/homeCtrl.js']);
+				return $ocLazyLoad.load(['app/js/home/homeCtrl.js','app/js/home/service/globalService.js']);
 			}]
 		}
 	})

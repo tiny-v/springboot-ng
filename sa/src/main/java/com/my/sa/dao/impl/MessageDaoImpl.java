@@ -21,13 +21,7 @@ public class MessageDaoImpl extends BaseJdbcDao implements MessageDao{
 	
 	public List<Message> getMessageList(){
 		//查看数据库信息
-        String dbSql = "select database();";
-        String db = getJdbcTemplate().queryForObject(dbSql, String.class);
-		logger.info(db);
-		
 		String sql = "select * from message;";
-		logger.info("--------------sql-------------");
-		logger.info(sql);
 		List<Message> list = getNamedParameterJdbcTemplate().query(sql, new HashMap(),new BeanPropertyRowMapper(Message.class));
 		return list;
 	}

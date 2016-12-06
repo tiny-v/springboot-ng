@@ -31,11 +31,11 @@ angular
 			if(rejection && rejection.status == 400){
 				if(rejection.data.code == '403'){
 					var stateService = $injector.get('$state');
-					stateService.go('sign_in');
+					stateService.go('login');
 				}
 			}else if (rejection && rejection.status === 403) {
 				var stateService = $injector.get('$state');
-				stateService.go('sign_in');
+				stateService.go('login');
 			} else {
 				if (rejection.status == 500 && rejection.data && rejection.data.exception == 'cn.infoease.idp.core.exception.ServiceException') {
 				
