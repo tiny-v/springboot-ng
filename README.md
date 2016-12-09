@@ -3,13 +3,13 @@
 已添加：
 
 1.js文件懒加载
-2.后台出错，抛出自定义异常，前台捕获（即配置responseError）
-3.拦截器
+2.前台捕获后台抛出的自定义异常（即配置responseError）
+3.拦截器和过滤器
 4.log4j
 5.junit
 6.token权限验证
 7.session超时处理和httpsession监听器
-
+8.bootstarp-Admin框架
 已包含工具类：
 1.ID生成器
 2.日期处理
