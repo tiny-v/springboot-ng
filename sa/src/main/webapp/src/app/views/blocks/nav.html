@@ -1,12 +1,12 @@
 <!-- list -->
 <ul class="nav">
-    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+   <!--  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
         <span>Navigation</span>
-    </li>
+    </li> -->
 
     <li ng-repeat="nav in navs">
 
-        <a href class="auto">
+         <a href class="auto">
             <span class="pull-right text-muted">
                 <i class="fa fa-fw fa-angle-right text"></i>
                 <i class="fa fa-fw fa-angle-down text-active"></i>
@@ -15,7 +15,15 @@
             <span class="font-bold">{{nav.title}}</span>
         </a>
 
-        <ul ng-if="nav.children" ng-repeat="item in nav.children" class="nav nav-sub dk">
+        <!-- <ul ng-if="nav.children" ng-repeat="item in nav.children" class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="{{item.href}}">
+                    <span>{{item.title}}</span>
+                </a>
+            </li>
+        </ul> -->
+        
+        <ul ng-if="nav.children" ng-repeat="item in nav.children"  class="nav nav-sub dk ">
             <li ui-sref-active="active">
                 <a ui-sref="{{item.href}}">
                     <span>{{item.title}}</span>

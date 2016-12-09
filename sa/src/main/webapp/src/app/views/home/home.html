@@ -1,46 +1,31 @@
-<div ng-controller="homeCtrl">
-	<div>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Angular</a>
-				</div>
-				<div>
-					<!--向左对齐-->
-					<ul class="nav navbar-nav navbar-left">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown"> springboot <b class="caret"></b>
-						</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">security</a></li>
-								<li class="divider"></li>
-								<li><a href="#">token</a></li>
-								<li class="divider"></li>
-								<li><a href="#">transaction</a></li>
-								<li class="divider"></li>
-								<li><a href="#">分离的链接</a></li>
-							</ul></li>
-					</ul>
-					<!--向右对齐-->
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">{{user.userName}}&nbsp; <b class="caret"></b>
-						</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">个人信息</a></li>
-								<li class="divider"></li>
-								<li><a ng-click="logOut()" href="#">注销</a></li>
-							</ul></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
 
-	</div>
+<!-- navbar -->
+<div data-ng-include=" 'app/views/blocks/header.html' "
+	class="app-header navbar"></div>
+<!-- / navbar -->
 
+<!-- menu -->
+<div data-ng-include=" 'app/views/blocks/aside.html' "
+	class="app-aside hidden-xs {{app.settings.asideColor}}"></div>
+<!-- / menu -->
 
-	<div class="content">
-		<div ui-view></div>
-	</div>
-
+<!-- content -->
+<div class="app-content">
+	<div ui-butterbar></div>
+	<a href class="off-screen-toggle hide" ui-toggle-class="off-screen"
+		data-target=".app-aside"></a>
+	<div class="app-content-body fade-in-up" ui-view></div>
 </div>
+<!-- /content -->
+
+<!-- footer -->
+<div class="app-footer wrapper b-t bg-light">
+	<span class="pull-right">{{app.version}} <a href ui-scroll="app"
+		class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+	&copy; 2016 Copyright.
+</div>
+<!-- / footer -->
+
+<!--<div data-ng-include=" 'tpl/blocks/settings.html' " class="settings panel panel-default">-->
+</div>
+

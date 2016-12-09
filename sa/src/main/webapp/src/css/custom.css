@@ -1,0 +1,11 @@
+.ueditor {
+    min-height: 400px;
+}
+
+.on-mouse-show {
+    display: none;
+}
+
+.on-mouse:hover .on-mouse-show {
+    display: inherit;
+}

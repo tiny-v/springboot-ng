@@ -1,7 +1,5 @@
 app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',function($rootScope,$sessionStorage,$cookieStore,$state,authServ) {
 	$rootScope.$on('$stateChangeStart', function(event, next) {
-		console.log(next);
-		console.log(authServ.isLoggedIn());
 		if(!authServ.isLoggedIn() && next.name!='login'){
 			event.preventDefault();
 			$state.go('login');
@@ -24,12 +22,12 @@ app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',funct
 	})
 	.state('app', {
 		url:'/app',
-		templateUrl: "app/views/home/home.html",
-		resolve: {
+		templateUrl: "app/views/home/home.html"
+		/*resolve: {
 			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
 				return $ocLazyLoad.load(['app/js/home/homeCtrl.js','app/js/home/service/globalService.js']);
 			}]
-		}
+		}*/
 	})
 	.state('app.message',{
 		url:'/message',

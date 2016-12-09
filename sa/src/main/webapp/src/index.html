@@ -5,17 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>spring boot</title>
 
- <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css"/>
- <link rel="stylesheet" href="../bootstrap/dist/css/font-awesome.min.css"/>
- <link href="../bootstrap/dist/css/animate.min.css" rel="stylesheet">
- <link href="../bootstrap/dist/css/prettyPhoto.css" rel="stylesheet">
- <link href="../bootstrap/dist/css/responsive.css" rel="stylesheet">
-
+<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../bower_components/animate.css/animate.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/font.css" type="text/css" />
+<link rel="stylesheet" href="css/app.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 </head>
 
-<body ng-controller="appCtrl"  ui-view>
-    
-    <!---------------- 框架js ----------------------->
+<body ng-controller="appCtrl">
+
+	<div class="app" id="app"
+		ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}"
+		ui-view></div>
+
+	<!---------------- 框架js ----------------------->
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="../bower_components/angular/angular.min.js"></script>
 	<!-- 路由 -->
 	<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -24,21 +30,25 @@
 	<!-- cookie -->
 	<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
 	<!-- storage -->
-    <script src="../bower_components/ngstorage/ngStorage.min.js"></script>
+	<script src="../bower_components/ngstorage/ngStorage.min.js"></script>
 	<!-- bootstrap -->
-	<script src="../bootstrap/dist/js/jquery.js"></script>
-	<script src="../bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!-- ui-bootstrap -->
-	<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-	<!-- <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script> -->
+	<script
+		src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<!-- md5 -->
 	<script src="../src/app/md5.js"></script>
+	
+	
 	<!---------------- 自定义js ---------------------->
 	<script src="../src/app/app.js"></script>
 	<script src="../src/app/config.js"></script>
 	<script src="../src/app/router.js"></script>
 	<script src="../src/app/appCtrl.js"></script>
 	<script src="../src/app/auth.js"></script>
+	<!-- 指令 -->
+	<script src="../src/app/js/directives/ui-nav.js"></script>
+	
 
 </body>
 
