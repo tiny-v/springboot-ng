@@ -10,7 +10,7 @@
 6.token权限验证
 7.session超时处理和httpsession监听器
 8.bootstarp-Admin框架
-
+9.记录登录者信息,存储在mongodb中.(使用到百度地图api中的IP精确定位)
 
 已包含工具类：
 
@@ -22,7 +22,8 @@
 
 数据库：
 
-mysql（放在阿里云，系统：centos7）  
+mysql（放在阿里云，系统：centos7）
+mongodb (同上) 
 
 
 
