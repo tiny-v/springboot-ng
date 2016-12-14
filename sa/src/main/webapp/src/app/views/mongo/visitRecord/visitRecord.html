@@ -1,0 +1,69 @@
+<div ng-controller="visitRecordCtrl">
+
+   <div class="bg-light lter b-b wrapper-md">
+		<h1 class="m-n font-thin h3">访问记录</h1>
+	</div>
+
+	<div class="wrapper-md">
+		<div class="panel panel-default">
+			<!-- <div class="panel-body b-b b-light">
+
+				<div class="col-sm-5 col-lg-3 pull-right">
+					<div class="input-group">
+						<input type="text" ng-model="condition" class="input-sm form-control"> <span
+							class="input-group-btn">
+							<button class="btn btn-sm btn-default" ng-click="search()" type="button">搜索</button>
+						</span>
+					</div>
+				</div>
+
+			</div> -->
+			<table class="table m-b-none">
+
+				<thead>
+					<tr>
+						<th>NO.</th>
+						<th>账号</th>
+						<th>IP</th>
+						<th>归属地</th>
+						<th>详细地址</th>
+						<td>半径</td>
+						<td>可信度</td>
+						<th>访问时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="row in visitRecords track by $index">
+						<td ng-bind="$index+1"></td>
+						<td ng-bind="row.account"></td>
+						<td ng-bind="row.ip"></td>
+						<td ng-bind="row.area"></td>
+						<td ng-bind="row.addressDetail"></td>
+						<td ng-bind="row.radius"></td>
+						<td ng-bind="row.confidence"></td>
+						<td ng-bind="row.visitTime"></td>
+					</tr>
+				</tbody>
+			</table>
+			<footer class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4 hidden-xs"></div>
+					<div class="col-sm-4 text-center">
+						<small class="text-muted inline m-t-sm m-b-sm">当前显示
+							{{page.size*(page.currentPage-1)+1}}-{{page.size*page.currentPage}}
+							个，共 {{page.totalItems}} 个</small>
+					</div>
+					<div class="col-sm-4 text-right text-center-xs">
+						<pagination total-items="page.totalItems"
+							ng-model="page.currentPage" max-size="5"
+							ng-change="refresh()" class="pagination-sm m-t-sm m-b"
+							boundary-links="true" previous-text="&lsaquo;"
+							next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+	</div>
+
+</div>

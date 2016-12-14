@@ -1,5 +1,7 @@
 package com.my.sa.controller;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,19 +16,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.my.sa.core.exception.OrtException;
+import com.my.sa.core.util.AddressUtils;
+import com.my.sa.core.util.BaiduIpAddressUtils;
 import com.my.sa.core.util.DateUtils;
+import com.my.sa.core.util.NetworkUtil;
 import com.my.sa.core.util.SessionUtils;
 import com.my.sa.core.util.IdUtil.IdUtil;
+import com.my.sa.dao.visitRecordDao;
 import com.my.sa.domain.User;
+import com.my.sa.domain.visitRecord;
 import com.my.sa.dto.LoginUser;
 import com.my.sa.service.UserService;
+
+import net.sf.json.JSONObject;
 
 @RestController
 @RequestMapping(value="/login")
 public class loginController {
-	
+
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private visitRecordDao vrDao;
 
 	@RequestMapping(value="/checkLogin",method=RequestMethod.POST)
 	public LoginUser checkLogin(@RequestBody User user,HttpServletRequest request){
@@ -43,6 +54,43 @@ public class loginController {
 				loginUser.setToken(token);
 				session.setAttribute(SessionUtils.SIGN_IN_USER, user2);
 				session.setMaxInactiveInterval(10*60);
+
+				String agent = request.getHeader("user-agent");
+				System.out.println("agent:"+agent);
+				if(agent.contains("Android")) {
+					System.out.println("Android移动客户端");
+				} else if(agent.contains("iPhone")) {
+					System.out.println("iPhone移动客户端");
+				}  else if(agent.contains("iPad")) {
+					System.out.println("iPad客户端");
+				}  else {
+					System.out.println("其他客户端");
+				}
+
+				//将登陆信息存到mongodb
+				visitRecord vr = new visitRecord();
+				String ip = "";
+				try {
+					ip = NetworkUtil.getIpAddress(request);
+					if(!("0:0:0:0:0:0:0:1").equals(ip) && null!=ip && !("").equals(ip)){
+						vr.setAccount(user2.getAccount());
+						vr.setVisitTime(DateUtils.curDateTimeStr());
+						vr.setIp(ip);
+						vr.setArea(new AddressUtils().getAddresses("ip="+ip, "utf-8"));
+						JSONObject json = BaiduIpAddressUtils.post(ip);
+						if(null!=json.get("content")){
+				        	 String address = JSONObject.fromObject(json.get("content")).get("formatted_address").toString();
+				        	 String confidence = JSONObject.fromObject(json.get("content")).get("confidence").toString();
+				        	 String radius = JSONObject.fromObject(json.get("content")).get("radius").toString();
+				             vr.setAddressDetail(address);
+				             vr.setConfidence(confidence);
+				             vr.setRadius(radius);
+						}
+						vrDao.saveVisitRecord(vr);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				return loginUser;
 			}else{
 				//账号密码不匹配
@@ -53,7 +101,7 @@ public class loginController {
 			throw new OrtException(400,"没有此账号");
 		}
 	}
-	
+
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,String> register(@RequestBody User user){
@@ -66,7 +114,7 @@ public class loginController {
 		map.put("message", "success");
 		return map;
 	}
-	
+
 	/**
 	 * Log out.注销
 	 *
@@ -75,8 +123,8 @@ public class loginController {
 	@RequestMapping(value="/logOut",method=RequestMethod.GET)
 	public void logOut(HttpServletRequest request){
 		HttpSession session = request.getSession();
-	    session.invalidate();
+		session.invalidate();
 	}
-	
-	
+
+
 }

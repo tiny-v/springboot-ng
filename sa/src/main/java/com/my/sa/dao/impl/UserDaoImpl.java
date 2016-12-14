@@ -17,7 +17,7 @@ public class UserDaoImpl extends BaseJdbcDao implements UserDao{
 	@Override
 	public void createUser(User user) {
 		String sql = "insert into user(user_id,user_name,account,password,role,create_time,update_time)"+""
-				+ " values(:userId,:username,:account,:password,:role,:createTime,:updateTime)";
+				+ " values(:userId,:userName,:account,:password,:role,:createTime,:updateTime)";
 		SqlParameterSource parameters = new BeanPropertySqlParameterSource(user);
 		getNamedParameterJdbcTemplate().update(sql, parameters);
 	}

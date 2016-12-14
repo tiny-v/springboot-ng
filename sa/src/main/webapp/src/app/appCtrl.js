@@ -87,6 +87,26 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                         href: "app.director"
                     }
                 ]
+            },
+            {
+                title: "redis",
+                icon: "fa fa-user text-primary-dker",
+                children: [
+                    {
+                        title: "Redis",
+                        href: "app.redis.learn"
+                    }
+                ]
+            },
+            {
+                title: "mongodb",
+                icon: "fa fa-user text-primary-dker",
+                children: [
+                    {
+                        title: "访问记录",
+                        href: "app.visitRecord"
+                    }
+                ]
             }
         ];
 

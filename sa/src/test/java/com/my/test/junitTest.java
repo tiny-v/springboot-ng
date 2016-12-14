@@ -1,7 +1,5 @@
 package com.my.test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +10,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.my.sa.App;
-import com.my.sa.domain.Message;
-import com.my.sa.service.MessageService;
+import com.my.sa.dao.visitRecordDao;
+import com.my.sa.domain.visitRecord;
 
 @RunWith(SpringJUnit4ClassRunner.class) // SpringJUnit支持，由此引入Spring-Test框架支持！ 
 @SpringApplicationConfiguration(classes = App.class) // 指定我们SpringBoot工程的Application启动类
@@ -23,26 +21,24 @@ import com.my.sa.service.MessageService;
 public class junitTest {
 	
 	@Autowired
-	private MessageService messageService;
+	private visitRecordDao vrDao;
 	
 	@Test
-	public void test(){
-		
+	public void save(){
+		visitRecord vr = new visitRecord();
+		vr.setArea("南京");
+		vr.setIp("111.111.111.111");
+		vrDao.saveVisitRecord(vr);
 	}
 	
-	@Test
-	public void insertMessage(){
-		Message message = new Message();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		message.setMsgId(String.valueOf((int)(Math.random()*1000)));
-        message.setMsgContent("hello transaction");
-        message.setMsgTitle("go go go,basketball");
-        message.setMsgType("test");
-        message.setCreateBy("may");
-        message.setCreateTime(format.format(new Date()));
-        message.setUpdateBy("may");
-        message.setUpdateTime(format.format(new Date()));
-        messageService.insertMessage(message);
-	}
+	
+	/*@Test
+	public void mongoQuery(){
+		List<visitRecord> vr = vrDao.findAll();
+		System.out.println("vrsize:"+vr.size());
+		for(visitRecord a:vr){
+			System.out.println(JSONObject.fromObject(a).toString());
+		}
+	}*/
 
 }

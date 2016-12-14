@@ -29,12 +29,12 @@ app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',funct
 			}]
 		}*/
 	})
-	.state('app.message',{
-		url:'/message',
-		templateUrl:"app/views/message/message.html",
+	.state('app.visitRecord',{
+		url:'/visitRecord',
+		templateUrl:"app/views/mongo/visitRecord/visitRecord.html",
 		resolve: {
 			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
-				return $ocLazyLoad.load(['app/js/message/messageCtrl.js','app/js/message/service/messageService.js']);
+				return $ocLazyLoad.load(['app/js/mongo/visitRecord/visitRecord.js','app/js/home/service/globalService.js']);
 			}]
 		}
 	})

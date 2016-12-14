@@ -8,6 +8,9 @@ app.factory('globalService',['$http',function($http){
 		},
 		logOut:function(){
 			return $http.get('/login/logOut');
+		},
+		getVisitRecord:function(param){
+			return $http.get('/global/getVisitRecord?page='+param.page+'&size='+param.size);
 		}
 		
 	}

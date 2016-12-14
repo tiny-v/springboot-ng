@@ -11,7 +11,7 @@ app.controller('loginCtrl',['$scope','$state','loginService','$modal',function($
 				if(resp.data){
 					$scope.authError = null;
 					loginService.setLoginUser(resp.data);
-					$state.go('app.message');
+					$state.go('app.visitRecord');
 				}
 			}else if(resp.status==400){
 				$scope.authError = resp.data.message;
