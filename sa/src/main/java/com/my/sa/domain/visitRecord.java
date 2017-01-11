@@ -1,10 +1,13 @@
 package com.my.sa.domain;
 
+import com.mongodb.ReflectionDBObject;
+
 /*
  * mongodb 
  * 访问记录*/
-public class visitRecord {
+public class visitRecord extends ReflectionDBObject {
 	
+	private String _id;
 	private String account;
 	private String ip;
 	private String area;
@@ -14,6 +17,14 @@ public class visitRecord {
 	private String visitTime;
 	private String leaveTime;
 	
+	
+	
+	public String get_id() {
+		return _id;
+	}
+	public void set_id(String _id) {
+		this._id = _id;
+	}
 	public String getAccount() {
 		return account;
 	}

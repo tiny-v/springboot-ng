@@ -3,5 +3,6 @@ var app = angular.module('app',
 		 'oc.lazyLoad',
 		 'ngCookies',
 		 'ngStorage',
-		 'ui.bootstrap'
+		 'ui.bootstrap',
+		 'angularFileUpload'
 		 ]);

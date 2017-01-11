@@ -1,126 +1,40 @@
 package com.my.sa.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.el.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+import com.my.sa.configuration.MongoConfig;
 import com.my.sa.core.util.page.Page;
 import com.my.sa.domain.visitRecord;
 
+import net.sf.json.JSONObject;
+
 @Repository
-public class visitRecordDao implements MongoRepository<visitRecord,String>{
+public class visitRecordDao {
 	
 	@Autowired
-	private MongoTemplate mongoTemplate;
-
-	@Override
-	public List<visitRecord> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public List<visitRecord> findAll(Sort arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public <S extends visitRecord> S insert(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public <S extends visitRecord> List<S> insert(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public <S extends visitRecord> List<S> save(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
+	private MongoConfig mongoConfig;
+	
 	public Page findAll(Pageable pageable) {
-		Query query = new Query();
-		long count = mongoTemplate.count(query,"visitRecord");
+		DBCollection collection = mongoConfig.getCollection("visitRecord");//获取collection
+		long count = collection.count();//查询总数
+		DBCursor cursor = collection.find().sort(new BasicDBObject("visitTime",-1)).skip((pageable.getPageNumber()-1)*pageable.getPageSize()).limit(pageable.getPageSize());//查询数据
+		List<DBObject> result = new ArrayList<DBObject>();
+		cursor.forEachRemaining(res -> result.add(res));
 		Page page = new Page(pageable.getPageNumber(),pageable.getPageSize(),count);
+		page.setDatas(result);
 		page.setTotalPage();
-		query.skip(page.getFirstResult());// skip相当于从那条记录开始  
-        query.limit(page.getPageSize());// 从skip开始,取多少条记录
-        query.with(new Sort(Direction.DESC, "visitTime"));
-        page.setDatas(mongoTemplate.find(query, visitRecord.class)); 
         return page;
-	}
-
-
-	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public void delete(String arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void delete(visitRecord arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void delete(Iterable<? extends visitRecord> arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public boolean exists(String arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-	@Override
-	public Iterable<visitRecord> findAll(Iterable<String> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public visitRecord findOne(String arg0) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 
@@ -131,15 +45,12 @@ public class visitRecordDao implements MongoRepository<visitRecord,String>{
 
 
 	public void saveVisitRecord(visitRecord vr) {
-		mongoTemplate.save(vr,"visitRecord");
+		DBCollection collection = mongoConfig.getCollection("visitRecord");//获取collection
+		collection.insert(vr);
 	}
 
 
-	@Override
-	public <S extends visitRecord> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 
 	

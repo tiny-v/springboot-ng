@@ -38,4 +38,22 @@ app.run(['$rootScope','$sessionStorage','$cookieStore','$state','authServ',funct
 			}]
 		}
 	})
+	.state('app.redis',{
+		url:'/redis',
+		templateUrl:"app/views/redis/redis.html",
+		resolve: {
+			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
+				return $ocLazyLoad.load(['app/js/redis/redis.js']);
+			}]
+		}
+	})
+	.state('app.oss',{
+		url:'/oss',
+		templateUrl:"app/views/aliyun/oss/oss.html",
+		resolve: {
+			deps: ['$ocLazyLoad',function ($ocLazyLoad) {
+				return $ocLazyLoad.load(['app/js/aliyun/oss/ossCtrl.js','app/js/aliyun/oss/service/ossService.js']);
+			}]
+		}
+	})
 }]);

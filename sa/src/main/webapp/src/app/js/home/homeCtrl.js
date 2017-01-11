@@ -22,9 +22,6 @@ app.controller('homeCtrl',['$scope','$sessionStorage','$state','$timeout','$inte
 	}
 	$scope.getOnlineNum();
 	
-	/*$interval(function(){
-		$scope.getOnlineNum();
-	},6000);*/
 	
 	
 	

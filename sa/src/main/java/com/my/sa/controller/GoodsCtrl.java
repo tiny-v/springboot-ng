@@ -18,7 +18,6 @@ public class GoodsCtrl {
 	@ResponseBody
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String getGoods(){
-		System.out.println("you got here");
 		return "you got here";
 	}
 	

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package com.my.test;
 
 import org.junit.Test;
@@ -9,9 +12,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mongodb.DBCollection;
 import com.my.sa.App;
+import com.my.sa.configuration.MongoConfig;
+import com.my.sa.configuration.properties.MongoProperties;
 import com.my.sa.dao.visitRecordDao;
-import com.my.sa.domain.visitRecord;
 
 @RunWith(SpringJUnit4ClassRunner.class) // SpringJUnit支持，由此引入Spring-Test框架支持！ 
 @SpringApplicationConfiguration(classes = App.class) // 指定我们SpringBoot工程的Application启动类
@@ -22,23 +27,27 @@ public class junitTest {
 	
 	@Autowired
 	private visitRecordDao vrDao;
+	@Autowired
+	private MongoConfig mongoConfig;
+	
+	/**
+	 * mongo save test
+	 */
 	
 	@Test
 	public void save(){
-		visitRecord vr = new visitRecord();
-		vr.setArea("南京");
-		vr.setIp("111.111.111.111");
-		vrDao.saveVisitRecord(vr);
+		try {
+			DBCollection collection = null;
+			for(int i=0;i<2;i++){
+				collection = mongoConfig.getCollection("visitRecord");
+				if(null != collection)
+					System.out.println(collection.getFullName());
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	
-	/*@Test
-	public void mongoQuery(){
-		List<visitRecord> vr = vrDao.findAll();
-		System.out.println("vrsize:"+vr.size());
-		for(visitRecord a:vr){
-			System.out.println(JSONObject.fromObject(a).toString());
-		}
-	}*/
 
 }

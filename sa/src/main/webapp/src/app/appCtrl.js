@@ -30,7 +30,7 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                 navbarCollapseColor: 'bg-white-only',
                 asideColor: 'bg-black',
                 headerFixed: true,
-                asideFixed: false,
+                asideFixed: true,
                 asideFolded: false,
                 asideDock: false,
                 container: false
@@ -94,7 +94,7 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                 children: [
                     {
                         title: "Redis",
-                        href: "app.redis.learn"
+                        href: "app.redis"
                     }
                 ]
             },
@@ -105,6 +105,16 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                     {
                         title: "访问记录",
                         href: "app.visitRecord"
+                    }
+                ]
+            },
+            {
+                title: "阿里云",
+                icon: "fa fa-user text-primary-dker",
+                children: [
+                    {
+                        title: "OSS",
+                        href: "app.oss"
                     }
                 ]
             }

@@ -13,9 +13,7 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.UUID;
 
-/**
- * 访问地址 http://incog-auction.img-cn-shanghai.aliyuncs.com/文件名
- */
+
 public class AliyunOSSUtil {
 
     private static String endpoint = null;
@@ -29,7 +27,8 @@ public class AliyunOSSUtil {
         accessKeyId = aliyunOSS.getAccessKeyId();
         accessKeySecret = aliyunOSS.getAccessKeySecret();
         bucketName = aliyunOSS.getBucketName();
-        path = "http://" + bucketName + ".img-" + endpoint.substring(4) + "/";
+        path = "http://"+bucketName+"."+endpoint + "/";
+        System.out.println("path::"+path);
         MimeUtil.registerMimeDetector("eu.medsea.mimeutil.detector.MagicMimeMimeDetector");
         System.out.println("Aliyun OSS Init...");
     }
