@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.my.sa.dao.MessageDao;
 import com.my.sa.domain.Message;
+import com.my.sa.repository.MessageRepository;
 import com.my.sa.service.MessageService;
 
 @Service
@@ -17,16 +17,16 @@ public class MessageServiceImpl implements MessageService{
 	 * */
 	
 	@Autowired
-	private MessageDao messageDao;
+	private MessageRepository messageRepository;
 
 	@Override
 	public List<Message> getMessageList() {
-		return messageDao.getMessageList();
+		return messageRepository.getMessageList();
 	}
 
 	@Override
 	public void insertMessage(Message message) {
-		messageDao.insertMessage(message);
+		messageRepository.createMessage(message);
 	}
 
 }

@@ -7,7 +7,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
@@ -17,9 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
-import com.my.sa.configuration.MongoConfig;
 import com.my.sa.configuration.properties.AliyunOSSProperties;
-import com.my.sa.core.filter.ServletFilter;
 import com.my.sa.core.security.interceptor.SecurityInterceptor;
 import com.my.sa.core.util.AliyunOSSUtil;
 

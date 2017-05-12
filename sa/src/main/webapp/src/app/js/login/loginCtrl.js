@@ -24,8 +24,22 @@ app.controller('loginCtrl',['$scope','$state','loginService','$modal',function($
 		var modalInstance = $modal.open({
             templateUrl: 'app/views/login/register.html',
             controller: function ($scope, $modalInstance) {
-                $scope.ok = function () {
+                $scope.ok = function (user) {
                     $modalInstance.close(true);
+                    $scope.$parent.user = angular.copy(user);
+                    $scope.user.password = hex_md5($scope.user.password);
+            		loginService.login($scope.user).then(function(resp){
+            			if(resp.status==200){
+            				if(resp.data){
+            					$scope.authError = null;
+            					loginService.setLoginUser(resp.data);
+            					$state.go('app.visitRecord');
+            				}
+            			}else if(resp.status==400){
+            				$scope.authError = resp.data.message;
+            			}
+            		});
+                    $scope.$parent.login();
                 };
                 $scope.cancel = function () {
                     $modalInstance.close(false);
@@ -40,18 +54,15 @@ app.controller('registerCtrl',['$scope','loginService',function($scope,loginServ
 	
 	$scope.user = {};
 	$scope.register = function(){
-		if($scope.user.password===$scope.user.password2 && $scope.user.password!=''){
+		if($scope.user.password!='' && $scope.user.password===$scope.user.password2 ){
 			var user = {};
 			user.account = $scope.user.account;
 			user.password = calcMD5($scope.user.password);
-			user.username = "abc";
 			loginService.register(user).then(function(resp){
-				console.log(resp);
 				if(resp.data.message=='success'){
-					$scope.ok();
+					$scope.ok($scope.user);
 				}
 			});
-			
 		}else{
 			$scope.authError = "两次输入的密码不一致";
 		}

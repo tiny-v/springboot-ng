@@ -1,0 +1,173 @@
+2017-01-0715:53:12,262  INFO com.my.sa.App:48 - Starting App on Lenovo-PC-024 with PID 10484 (E:\mayueEclipse\springboot-ng\sa\target\classes started by wanglin in E:\mayueEclipse\springboot-ng\sa)
+2017-01-0715:53:12,267  INFO com.my.sa.App:666 - No active profile set, falling back to default profiles: default
+2017-01-0715:53:12,400  INFO org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext:578 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@462d5aee: startup date [Sat Jan 07 15:53:12 CST 2017]; root of context hierarchy
+2017-01-0715:53:13,453  INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.2.4.Final
+2017-01-0715:53:14,673  INFO org.springframework.beans.factory.support.DefaultListableBeanFactory:839 - Overriding bean definition for bean 'beanNameViewResolver' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter; factoryMethodName=beanNameViewResolver; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter.class]]
+2017-01-0715:53:15,305  INFO org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:328 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$870788df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-01-0715:53:16,377  INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer:81 - Tomcat initialized with port(s): 8081 (http)
+2017-01-0715:53:16,404  INFO org.apache.catalina.core.StandardService:180 - Starting service Tomcat
+2017-01-0715:53:16,407  INFO org.apache.catalina.core.StandardEngine:180 - Starting Servlet Engine: Apache Tomcat/8.0.32
+2017-01-0715:53:16,571  INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:180 - Initializing Spring embedded WebApplicationContext
+2017-01-0715:53:16,572  INFO org.springframework.web.context.ContextLoader:272 - Root WebApplicationContext: initialization completed in 4180 ms
+2017-01-0715:53:17,081  INFO org.springframework.boot.context.embedded.ServletRegistrationBean:189 - Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-0715:53:17,084  INFO org.springframework.boot.context.embedded.ServletRegistrationBean:189 - Mapping servlet: 'com.my.sa.core.filter.MyServlet1' to [/servlet/*]
+2017-01-0715:53:17,089  INFO org.springframework.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-0715:53:17,092  INFO org.springframework.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-0715:53:17,095  INFO org.springframework.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-0715:53:17,099  INFO org.springframework.boot.context.embedded.FilterRegistrationBean:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-0715:53:17,101  INFO org.springframework.boot.context.embedded.FilterRegistrationBean:271 - Mapping filter: 'webFilter' to urls: [/*]
+2017-01-0715:53:17,890  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [protected final java.sql.Connection org.springframework.jdbc.core.support.JdbcDaoSupport.getConnection() throws org.springframework.jdbc.CannotGetJdbcConnectionException] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,890  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [public final void org.springframework.jdbc.core.support.JdbcDaoSupport.setDataSource(javax.sql.DataSource)] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,891  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [public final javax.sql.DataSource org.springframework.jdbc.core.support.JdbcDaoSupport.getDataSource()] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,892  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [protected final org.springframework.jdbc.support.SQLExceptionTranslator org.springframework.jdbc.core.support.JdbcDaoSupport.getExceptionTranslator()] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,893  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [protected final void org.springframework.jdbc.core.support.JdbcDaoSupport.releaseConnection(java.sql.Connection)] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,898  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [public final void org.springframework.jdbc.core.support.JdbcDaoSupport.setJdbcTemplate(org.springframework.jdbc.core.JdbcTemplate)] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,899  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [public final org.springframework.jdbc.core.JdbcTemplate org.springframework.jdbc.core.support.JdbcDaoSupport.getJdbcTemplate()] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:17,899  INFO org.springframework.aop.framework.CglibAopProxy:265 - Unable to proxy method [public final void org.springframework.dao.support.DaoSupport.afterPropertiesSet() throws java.lang.IllegalArgumentException,org.springframework.beans.factory.BeanInitializationException] because it is final: All calls to this method via a proxy will NOT be routed to the target instance.
+2017-01-0715:53:18,560  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter:532 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@462d5aee: startup date [Sat Jan 07 15:53:12 CST 2017]; root of context hierarchy
+2017-01-0715:53:18,645  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/global/getOnlineNum],methods=[GET]}" onto public long com.my.sa.controller.GlobalController.getOnlineNum()
+2017-01-0715:53:18,648  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/global/getVisitRecord],methods=[GET]}" onto public com.my.sa.core.util.page.Page com.my.sa.controller.GlobalController.getVisitRecord(org.springframework.data.domain.Pageable)
+2017-01-0715:53:18,654  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/goods/save]}" onto public java.lang.String com.my.sa.controller.GoodsCtrl.saveGoods()
+2017-01-0715:53:18,655  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/goods/],methods=[GET]}" onto public java.lang.String com.my.sa.controller.GoodsCtrl.getGoods()
+2017-01-0715:53:18,658  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/login/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.my.sa.controller.loginController.register(com.my.sa.domain.User)
+2017-01-0715:53:18,659  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/login/checkLogin],methods=[POST]}" onto public com.my.sa.dto.LoginUser com.my.sa.controller.loginController.checkLogin(com.my.sa.domain.User,javax.servlet.http.HttpServletRequest)
+2017-01-0715:53:18,660  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/login/logOut],methods=[GET]}" onto public void com.my.sa.controller.loginController.logOut(javax.servlet.http.HttpServletRequest)
+2017-01-0715:53:18,664  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/message/getMessageList],methods=[GET]}" onto public java.util.List<com.my.sa.domain.Message> com.my.sa.controller.MessageCtrl.getMessageList()
+2017-01-0715:53:18,667  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/message/insertMessage],methods=[GET]}" onto public void com.my.sa.controller.MessageCtrl.insertMessage(com.my.sa.domain.Message,javax.servlet.http.HttpServletRequest)
+2017-01-0715:53:18,669  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/oss/uploadToOss],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.String> com.my.sa.controller.OssCtrl.uploadToOss(org.springframework.web.multipart.MultipartFile)
+2017-01-0715:53:18,672  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/redis/testPost],methods=[POST]}" onto public java.lang.String com.my.sa.controller.redisCtrl.testPost(java.lang.String)
+2017-01-0715:53:18,674  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/redis/testGet],methods=[GET]}" onto public java.util.List<com.my.sa.domain.Message> com.my.sa.controller.redisCtrl.testGet(java.lang.String,java.lang.String)
+2017-01-0715:53:18,677  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-0715:53:18,681  INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping:534 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-0715:53:18,724  INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-0715:53:18,724  INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-0715:53:18,752  INFO org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver:267 - Detected @ExceptionHandler methods in exceptionAdvice
+2017-01-0715:53:18,774  INFO org.springframework.web.servlet.handler.SimpleUrlHandlerMapping:341 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-0715:53:20,087  INFO org.springframework.jmx.export.annotation.AnnotationMBeanExporter:431 - Registering beans for JMX exposure on startup
+2017-01-0715:53:20,137  INFO org.apache.coyote.http11.Http11NioProtocol:180 - Initializing ProtocolHandler ["http-nio-8081"]
+2017-01-0715:53:20,155  INFO org.apache.coyote.http11.Http11NioProtocol:180 - Starting ProtocolHandler ["http-nio-8081"]
+2017-01-0715:53:20,280  INFO org.apache.tomcat.util.net.NioSelectorPool:180 - Using a shared selector for servlet write/read
+2017-01-0715:53:20,301  INFO org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer:162 - Tomcat started on port(s): 8081 (http)
+2017-01-0715:53:20,374  INFO com.my.sa.App:57 - Started App in 8.69 seconds (JVM running for 9.626)
+2017-01-0715:55:51,935  INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:180 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-01-0715:55:51,936  INFO org.springframework.web.servlet.DispatcherServlet:488 - FrameworkServlet 'dispatcherServlet': initialization started
+2017-01-0715:55:51,960  INFO org.springframework.web.servlet.DispatcherServlet:507 - FrameworkServlet 'dispatcherServlet': initialization completed in 24 ms
+2017-01-0715:56:25,056 ERROR org.apache.tomcat.jdbc.pool.ConnectionPool:182 - Unable to create initial connections of pool.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:981)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:339)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2253)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2286)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2085)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:795)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:400)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:327)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connectUsingDriver(PooledConnection.java:307)
+	at org.apache.tomcat.jdbc.pool.PooledConnection.connect(PooledConnection.java:200)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.createConnection(ConnectionPool.java:708)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.borrowConnection(ConnectionPool.java:642)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.init(ConnectionPool.java:464)
+	at org.apache.tomcat.jdbc.pool.ConnectionPool.<init>(ConnectionPool.java:141)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.pCreatePool(DataSourceProxy.java:115)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.createPool(DataSourceProxy.java:102)
+	at org.apache.tomcat.jdbc.pool.DataSourceProxy.getConnection(DataSourceProxy.java:126)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:77)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:615)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:680)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:707)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:757)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(NamedParameterJdbcTemplate.java:192)
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.query(NamedParameterJdbcTemplate.java:199)
+	at com.my.sa.dao.impl.UserDaoImpl.getUserByAccount(UserDaoImpl.java:30)
+	at com.my.sa.dao.impl.UserDaoImpl$$FastClassBySpringCGLIB$$82382460.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:720)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:655)
+	at com.my.sa.dao.impl.UserDaoImpl$$EnhancerBySpringCGLIB$$e0e86b38.getUserByAccount(<generated>)
+	at com.my.sa.service.impl.UserServiceImpl.getUserByAccount(UserServiceImpl.java:22)
+	at com.my.sa.controller.loginController.checkLogin(loginController.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:817)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:731)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:968)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:870)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:844)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:292)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at com.my.sa.core.filter.ServletFilter.doFilter(ServletFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:240)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:207)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:212)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:141)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:522)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1095)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:672)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.NoRouteToHostException: No route to host: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:345)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+	... 96 more
