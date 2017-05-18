@@ -1,5 +1,5 @@
 # springboot+angular 项目框架
-注：本项目效果可登录   120.24.7.40:8081/src/index.html 查看
+注：本项目效果可登录   116.62.208.242:8081/src/index.html 查看
 
 已添加：
 
