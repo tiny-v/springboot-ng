@@ -7,7 +7,6 @@ import com.mongodb.ReflectionDBObject;
  * 访问记录*/
 public class visitRecord extends ReflectionDBObject {
 	
-	private String _id;
 	private String account;
 	private String ip;
 	private String area;
@@ -17,14 +16,23 @@ public class visitRecord extends ReflectionDBObject {
 	private String visitTime;
 	private String leaveTime;
 	
-	
-	
-	public String get_id() {
-		return _id;
+	public visitRecord() {
+		super();
 	}
-	public void set_id(String _id) {
-		this._id = _id;
+	
+	public visitRecord(String account, String ip, String area, String addressDetail, String confidence,
+			String radius, String visitTime, String leaveTime) {
+		super();
+		this.account = account;
+		this.ip = ip;
+		this.area = area;
+		this.addressDetail = addressDetail;
+		this.confidence = confidence;
+		this.radius = radius;
+		this.visitTime = visitTime;
+		this.leaveTime = leaveTime;
 	}
+
 	public String getAccount() {
 		return account;
 	}

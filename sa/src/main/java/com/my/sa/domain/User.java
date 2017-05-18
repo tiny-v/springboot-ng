@@ -10,6 +10,19 @@ public class User {
 	private String createTime;
 	private String updateTime;
 	
+	public User(){}
+	
+	public User(String userId,String userName,String account,String password,String role,
+			    String createTime,String updateTime){
+		this.userId = userId;
+		this.userName = userName;
+		this.account = account;
+		this.password = password;
+		this.role = role;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}

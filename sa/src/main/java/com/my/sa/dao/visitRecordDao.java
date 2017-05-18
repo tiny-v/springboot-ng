@@ -2,13 +2,9 @@ package com.my.sa.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.el.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -16,8 +12,6 @@ import com.mongodb.DBObject;
 import com.my.sa.configuration.MongoConfig;
 import com.my.sa.core.util.page.Page;
 import com.my.sa.domain.visitRecord;
-
-import net.sf.json.JSONObject;
 
 @Repository
 public class visitRecordDao {

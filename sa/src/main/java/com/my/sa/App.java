@@ -15,7 +15,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-
 import com.my.sa.configuration.properties.AliyunOSSProperties;
 import com.my.sa.core.security.interceptor.SecurityInterceptor;
 import com.my.sa.core.util.AliyunOSSUtil;
@@ -48,8 +47,7 @@ public class App implements CommandLineRunner{
 
     @Override
     public void run(String... strings) throws Exception {
-
-        AliyunOSSUtil.init(aliyunOSS);
+        AliyunOSSUtil.init(aliyunOSS);//初始化阿里云OSS
     }
 
 	public static void main( String[] args )

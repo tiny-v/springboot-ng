@@ -8,6 +8,16 @@ public class LoginUser {
 	private String token;
 	private String role;
 	
+	public LoginUser(){}
+	
+	public LoginUser(String userId,String account,String userName,String token,String role){
+		this.userId = userId;
+		this.account = account;
+		this.userName = userName;
+		this.token = token;
+		this.role = role;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}

@@ -2,6 +2,11 @@ package com.my.sa.configuration.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * The Class AliyunOSSProperties
+ * 阿里云OSS服务配置信息
+ * 项目启动时，由application.properties里的数据自动进行初始化
+ */
 @ConfigurationProperties(prefix = "aliyun.oss", ignoreUnknownFields = false)
 public class AliyunOSSProperties {
 

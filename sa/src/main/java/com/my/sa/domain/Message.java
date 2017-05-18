@@ -11,6 +11,21 @@ public class Message {
 	private String updateTime;
 	private String updateBy;
 	
+	public Message(){}
+	
+	public Message(String msgId, String msgTitle, String msgContent, String msgType, String createTime, String createBy,
+			String updateTime, String updateBy) {
+		super();
+		this.msgId = msgId;
+		this.msgTitle = msgTitle;
+		this.msgContent = msgContent;
+		this.msgType = msgType;
+		this.createTime = createTime;
+		this.createBy = createBy;
+		this.updateTime = updateTime;
+		this.updateBy = updateBy;
+	}
+	
 	public String getMsgId() {
 		return msgId;
 	}

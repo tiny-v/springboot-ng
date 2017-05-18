@@ -1,6 +1,6 @@
 package com.my.sa.configuration;
 
-
+import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -15,9 +15,10 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
-
-
+/**
+ * The Class MybatisConfig.
+ * Mybatis 配置
+ */
 @Configuration
 @EnableTransactionManagement
 @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
@@ -30,12 +31,12 @@ public class MybatisConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        //datasource
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(
-                "mybatis/mybatis.xml"));
+        //config path 
+        sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("mybatis/mybatis.xml"));
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver
-                .getResources("classpath:/mybatis/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/mapper/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

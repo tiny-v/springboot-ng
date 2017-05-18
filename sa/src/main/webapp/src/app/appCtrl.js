@@ -60,7 +60,7 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
         }
 
         $scope.navs = [
-            {
+            /*{
                 title: "angularJs",
                 icon: "fa fa-users text-primary-dker",
                 children: [
@@ -73,8 +73,8 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                         href: "app.angular.reach"
                     }
                 ]
-            },
-            {
+            },*/
+            /*{
                 title: "springBoot",
                 icon: "fa fa-user text-primary-dker",
                 children: [
@@ -87,7 +87,7 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                         href: "app.director"
                     }
                 ]
-            },
+            },*/
             {
                 title: "redis",
                 icon: "fa fa-user text-primary-dker",
@@ -108,13 +108,23 @@ angular.module('app').controller('appCtrl', ['$scope', '$localStorage', '$window
                     }
                 ]
             },
-            {
+           /* {
                 title: "阿里云",
                 icon: "fa fa-user text-primary-dker",
                 children: [
                     {
                         title: "OSS",
                         href: "app.oss"
+                    }
+                ]
+            },*/
+            {
+                title: "lucene",
+                icon: "fa fa-user text-primary-dker",
+                children: [
+                    {
+                        title: "lucene",
+                        href: "app.lucene"
                     }
                 ]
             }

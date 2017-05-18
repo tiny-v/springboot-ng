@@ -14,6 +14,7 @@ app.controller('visitRecordCtrl',['$scope','globalService',function($scope,globa
 			console.log(resp);
 			$scope.page.totalItems = resp.data.totalCount;
 			$scope.visitRecords = resp.data.datas;
+			console.log("visitRecords",$scope.visitRecords);
 		});
 	}
 	$scope.init();

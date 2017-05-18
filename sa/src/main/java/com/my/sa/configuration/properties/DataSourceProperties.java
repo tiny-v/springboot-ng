@@ -1,11 +1,11 @@
-package com.my.sa.configuration;
+package com.my.sa.configuration.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Component("dataSourceConfig")
+@Component("dataSourceProperties")
 @ConfigurationProperties(prefix="spring.datasource",ignoreUnknownFields = true)
-public class DataSourceConfig {
+public class DataSourceProperties {
 	
 	private String username;
 	private String password;

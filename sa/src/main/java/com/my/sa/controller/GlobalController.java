@@ -22,7 +22,7 @@ public class GlobalController {
 	
 	
 	@Autowired
-	private visitRecordDao vr;
+	private visitRecordDao visitrecordDao;
 	
 	/**
 	 * Gets the online num. 获取在线人数
@@ -43,8 +43,8 @@ public class GlobalController {
 	 */
 	@RequestMapping(value="/getVisitRecord",method=RequestMethod.GET)
 	@ResponseBody
-	public Page getVisitRecord(@PageableDefault(page = 0, size = 10) Pageable pageable){
-		return vr.findAll(pageable);
+	public Page getVisitRecord(final @PageableDefault(page = 0, size = 10) Pageable pageable){
+		return visitrecordDao.findAll(pageable);
 	}
 	
 

@@ -1,38 +1,53 @@
 package com.my.sa.configuration;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+/**
+ * The Class DatabaseConfiguration.
+ */
+//method one
+
 @Configuration
 public class DatabaseConfiguration {
 	
-	/*@Resource
-	private DataSourceConfig dataSourceConfig;*/
 	@Autowired
 	private DataSource datasource;
 	
-	/*@Bean
-    public DataSource dataSource() {
-        return getTomcatPoolingDataSource(dataSourceConfig);
-    }*/
- 
     @Bean
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(datasource);
     }
+	
+}
+
+// method two
+
+/*@Configuration
+public class DatabaseConfiguration {
+	
+	@Resource
+	private DataSourceProperties dataSourceProperties;
+	
+	@Bean
+    public DataSource dataSource() {
+        return getTomcatPoolingDataSource(dataSourceProperties);
+    }
+ 
+    @Bean
+    public JdbcTemplate jdbcTemplate() {
+        return new JdbcTemplate(this.dataSource());
+    }
     
-	/*private DataSource getTomcatPoolingDataSource(DataSourceConfig config) {
+	private DataSource getTomcatPoolingDataSource(DataSourceProperties config) {
 		org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
         dataSource.setDriverClassName(config.getDriverClassName());
         dataSource.setUrl(config.getUrl());
         dataSource.setUsername(config.getUsername());
         dataSource.setPassword(config.getPassword());
- 
         dataSource.setInitialSize(config.getInitialSize()); // 连接池启动时创建的初始化连接数量（默认值为0）
         dataSource.setMaxActive(config.getMaxActive()); // 连接池中可同时连接的最大的连接数
         dataSource.setMaxIdle(config.getMaxIdle()); // 连接池中最大的空闲的连接数，超过的空闲连接将被释放，如果设置为负数表示不限
@@ -46,5 +61,5 @@ public class DatabaseConfiguration {
         dataSource.setValidationQuery(config.getValidationQuery());
         dataSource.setTimeBetweenEvictionRunsMillis(config.getTimeBetweenEvictionRunsMillis()); // 检查无效连接的时间间隔 设为30分钟
         return dataSource;
-    }*/
-}
+    }
+}*/
